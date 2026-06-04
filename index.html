@@ -1,0 +1,2177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ENova - Headphone Landing Page</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+      };
+    </script>
+  </head>
+  <body class="bg-white dark:bg-black transition-all duration-300 font-body">
+    <!-- Fixed Dark Mode Toggle Button Start -->
+    <button
+      onclick="toggleTheme()"
+      class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-yellow-400 transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-110 active:scale-95 border border-gray-300 dark:border-gray-600"
+      title="Toggle Dark Mode"
+      aria-label="Toggle dark mode"
+    >
+      <!-- Sun Icon (shown in dark mode) -->
+      <svg
+        id="sunIcon"
+        class="hidden dark:block w-7 h-7"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="5"></circle>
+        <path d="M12 1v2"></path>
+        <path d="M12 21v2"></path>
+        <path d="M4.22 4.22l1.42 1.42"></path>
+        <path d="M18.36 18.36l1.42 1.42"></path>
+        <path d="M1 12h2"></path>
+        <path d="M21 12h2"></path>
+        <path d="M4.22 19.78l1.42-1.42"></path>
+        <path d="M18.36 5.64l1.42-1.42"></path>
+      </svg>
+
+      <!-- Moon Icon (shown in light mode) -->
+      <svg
+        id="moonIcon"
+        class="block dark:hidden w-7 h-7"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+    <!-- Fixed Dark Mode Toggle Button End -->
+
+    <!-- Header start -->
+    <header
+      class="bg-white dark:bg-[#101116] border-b border-gray-200 dark:border-gray-800 relative transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-3">
+        <div class="flex items-center justify-between h-16">
+          <!-- LEFT -->
+          <div class="flex items-center gap-10">
+            <span
+              class="font-bold text-xl tracking-widest uppercase text-black dark:text-white transition-colors duration-300"
+            >
+              ENOVA
+            </span>
+
+            <!-- DESKTOP NAV -->
+            <nav class="hidden md:flex items-center gap-8">
+              <a
+                href="#"
+                class="text-sm text-gray-500 dark:text-gray-400 hover:text-[#2563ea] transition-all duration-300"
+                >Products</a
+              >
+              <a
+                href="#"
+                class="text-sm text-gray-500 dark:text-gray-400 hover:text-[#2563ea] transition-all duration-300"
+                >Technology</a
+              >
+              <a
+                href="#"
+                class="text-sm text-gray-500 dark:text-gray-400 hover:text-[#2563ea] transition-all duration-300"
+                >Sound</a
+              >
+              <a
+                href="#"
+                class="text-sm text-gray-500 dark:text-gray-400 hover:text-[#2563ea] transition-all duration-300"
+                >Support</a
+              >
+            </nav>
+          </div>
+
+          <!-- RIGHT ICONS -->
+          <div
+            class="flex items-center gap-4 text-gray-500 dark:text-gray-400 transition-colors duration-300"
+          >
+            <!-- Search (SVG kept) -->
+            <a href="#" class="hover:text-[#2563ea] transition">
+              <!-- search svg -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </svg>
+            </a>
+
+            <!-- User (SVG kept) -->
+            <a href="#" class="hover:text-[#2563ea] transition">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <circle cx="12" cy="7" r="4"></circle>
+                <path d="M5 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2"></path>
+              </svg>
+            </a>
+
+            <!-- Cart (SVG kept) -->
+            <a href="#" class="relative hover:text-[#2563ea] transition">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path d="M6 6h15l-1.5 9h-13z"></path>
+                <circle cx="9" cy="20" r="1"></circle>
+                <circle cx="18" cy="20" r="1"></circle>
+              </svg>
+
+              <span
+                class="absolute -top-2 -right-2 bg-[#2563ea] text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full leading-[1]"
+              >
+                0
+              </span>
+            </a>
+
+            <!-- Hamburger -->
+            <button onclick="toggleMenu()" class="md:hidden">
+              <!-- Hamburger Icon -->
+              <svg
+                id="menuIcon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path d="M4 6h16"></path>
+                <path d="M4 12h16"></path>
+                <path d="M4 18h16"></path>
+              </svg>
+
+              <!-- Close Icon -->
+              <svg
+                id="closeIcon"
+                class="hidden"
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path d="M18 6L6 18"></path>
+                <path d="M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- MOBILE NAV (same links, responsive dropdown) -->
+      <nav
+        id="mobileNav"
+        class="md:hidden absolute top-16 left-0 z-10 w-full bg-white dark:bg-[#101116] border-t border-gray-200 dark:border-gray-800 shadow-lg max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+      >
+        <div class="flex flex-col px-6 py-4 gap-4">
+          <a
+            href="#"
+            class="text-sm text-gray-500 dark:text-gray-400 hover:text-[#2563ea] transition-all duration-300"
+            >Products</a
+          >
+          <a
+            href="#"
+            class="text-sm text-gray-500 dark:text-gray-400 hover:text-[#2563ea] transition-all duration-300"
+            >Technology</a
+          >
+          <a
+            href="#"
+            class="text-sm text-gray-500 dark:text-gray-400 hover:text-[#2563ea] transition-all duration-300"
+            >Sound</a
+          >
+          <a
+            href="#"
+            class="text-sm text-gray-500 dark:text-gray-400 hover:text-[#2563ea] transition-all duration-300"
+            >Support</a
+          >
+        </div>
+      </nav>
+    </header>
+    <!-- Header end -->
+
+    <!-- Banner start -->
+    <section class="bg-background py-10 md:py-16">
+      <div class="max-w-7xl mx-auto px-3">
+        <div class="flex flex-col lg:flex-row gap-10">
+          <!-- LEFT SIDE -->
+          <div class="w-full lg:w-1/2 flex flex-col lg:flex-row gap-4">
+            <!-- MAIN IMAGE (always first on mobile) -->
+            <div class="order-1 lg:order-2 w-full">
+              <div class="relative w-full">
+                <img
+                  id="mainImage"
+                  src="images/banner-pd-img1.jpg"
+                  class="w-full h-[320px] sm:h-[420px] md:h-[500px] lg:h-[560px] object-cover rounded-2xl border border-gray-200 dark:border-gray-700 transition-colors duration-300"
+                />
+
+                <span
+                  class="absolute top-3 left-3 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase"
+                >
+                  New
+                </span>
+              </div>
+            </div>
+
+            <!-- THUMBNAILS -->
+            <div
+              class="order-2 lg:order-1 flex lg:flex-col flex-row gap-3 overflow-x-auto lg:overflow-visible w-full lg:w-[80px]"
+            >
+              <img
+                src="images/banner-pd-img1.jpg"
+                width="64"
+                height="64"
+                class="thumbnail w-14 h-14 md:w-16 md:h-16 lg:w-[70px] lg:h-[70px] rounded-lg border-2 border-blue-600 object-cover cursor-pointer flex-shrink-0"
+                onclick="changeImage(this)"
+              />
+
+              <img
+                src="images/banner-pd-img2.jpg"
+                width="64"
+                height="64"
+                class="thumbnail w-14 h-14 md:w-16 md:h-16 lg:w-[70px] lg:h-[70px] rounded-lg border border-gray-300 dark:border-gray-600 object-cover cursor-pointer flex-shrink-0 transition-colors duration-300"
+                onclick="changeImage(this)"
+              />
+
+              <img
+                src="images/banner-pd-img3.jpg"
+                width="64"
+                height="64"
+                class="thumbnail w-14 h-14 md:w-16 md:h-16 lg:w-[70px] lg:h-[70px] rounded-lg border border-gray-300 dark:border-gray-600 object-cover cursor-pointer flex-shrink-0 transition-colors duration-300"
+                onclick="changeImage(this)"
+              />
+
+              <img
+                src="images/banner-pd-img4.jpg"
+                width="64"
+                height="64"
+                class="thumbnail w-14 h-14 md:w-16 md:h-16 lg:w-[70px] lg:h-[70px] rounded-lg border border-gray-300 dark:border-gray-600 object-cover cursor-pointer flex-shrink-0 transition-colors duration-300"
+                onclick="changeImage(this)"
+              />
+            </div>
+          </div>
+
+          <!-- RIGHT SIDE -->
+          <div class="w-full lg:w-1/2">
+            <div class="flex flex-col gap-5 md:gap-6">
+              <!-- Brand -->
+              <div class="flex items-center gap-3 flex-wrap">
+                <span
+                  class="text-xs font-bold uppercase tracking-widest text-[#2563ea]"
+                >
+                  ENOVA AUDIO
+                </span>
+                <span
+                  class="text-xs border border-[#2563ea] text-[#2563ea] px-2 py-0.5 rounded-xl font-medium"
+                >
+                  Best Seller
+                </span>
+              </div>
+
+              <!-- Title -->
+              <div>
+                <h1
+                  class="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground dark:text-white transition-colors duration-300 leading-tight mb-3"
+                >
+                  ENOVA Pro X1
+                </h1>
+                <p
+                  class="text-sm md:text-lg mt-1 text-[#9095a9] dark:text-gray-400 transition-colors duration-300"
+                >
+                  Active Noise Cancelling Headphones
+                </p>
+              </div>
+
+              <!-- Rating -->
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="text-yellow-500">★★★★★</span>
+                <span class="text-sm text-[#2563ea] font-medium">4.8</span>
+                <span
+                  class="text-sm text-[#9095a9] dark:text-gray-400 transition-colors duration-300"
+                  >(2,340 reviews)</span
+                >
+              </div>
+
+              <!-- Price -->
+              <div class="flex items-end gap-3 flex-wrap">
+                <span
+                  class="font-bold text-2xl md:text-3xl dark:text-white transition-colors duration-300"
+                  >$349</span
+                >
+                <span
+                  class="text-lg md:text-xl text-[#9095a9] dark:text-gray-400 line-through transition-colors duration-300"
+                  >$449</span
+                >
+                <span
+                  class="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-xl"
+                >
+                  -22%
+                </span>
+              </div>
+
+              <div
+                class="h-px bg-[#e2e8f0] dark:bg-gray-700 transition-colors duration-300"
+              ></div>
+
+              <!-- Color -->
+              <div>
+                <div class="flex justify-between mb-2 text-sm">
+                  <span
+                    class="font-medium dark:text-white transition-colors duration-300"
+                    >Color</span
+                  >
+                  <span class="text-blue-600">Midnight Black</span>
+                </div>
+
+                <div class="flex gap-3 flex-wrap">
+                  <div
+                    class="w-8 h-8 rounded-full border-2 border-blue-600 bg-[#1a1a1a]"
+                  ></div>
+                  <div
+                    class="w-8 h-8 rounded-full border-2 border-gray-300 dark:border-gray-600 bg-[#e8e8e8] transition-colors duration-300"
+                  ></div>
+                  <div
+                    class="w-8 h-8 rounded-full border-2 border-gray-300 dark:border-gray-600 bg-[#1e3a5f] transition-colors duration-300"
+                  ></div>
+                  <div
+                    class="w-8 h-8 rounded-full border-2 border-gray-300 dark:border-gray-600 bg-[#8b1a1a] transition-colors duration-300"
+                  ></div>
+                </div>
+              </div>
+
+              <!-- Edition -->
+              <div>
+                <span
+                  class="text-sm font-medium block mb-2 dark:text-white transition-colors duration-300"
+                  >Edition</span
+                >
+
+                <div class="flex flex-wrap gap-3">
+                  <button
+                    class="px-3 py-2 rounded-xl text-sm border bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 transition-colors duration-300"
+                  >
+                    Standard
+                  </button>
+                  <button
+                    class="px-3 py-2 rounded-xl text-sm border border-blue-600 text-blue-600 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-400 dark:border-blue-600 transition-colors duration-300"
+                  >
+                    Pro
+                  </button>
+                  <button
+                    class="px-3 py-2 rounded-xl text-sm border bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 transition-colors duration-300"
+                  >
+                    Signature
+                  </button>
+                </div>
+              </div>
+
+              <!-- Quantity -->
+              <div class="flex items-center gap-4 flex-wrap">
+                <span
+                  class="text-sm font-medium dark:text-white transition-colors duration-300"
+                  >Quantity</span
+                >
+
+                <div
+                  class="flex items-center border dark:border-gray-700 rounded-lg overflow-hidden transition-colors duration-300"
+                >
+                  <button
+                    class="w-10 h-10 dark:text-white transition-colors duration-300"
+                    onclick="changeQty(-1)"
+                    type="button"
+                  >
+                    -
+                  </button>
+
+                  <span
+                    id="qtyValue"
+                    class="w-10 h-10 flex items-center justify-center dark:text-white transition-colors duration-300"
+                  >
+                    1
+                  </span>
+
+                  <button
+                    class="w-10 h-10 dark:text-white transition-colors duration-300"
+                    onclick="changeQty(1)"
+                    type="button"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+
+              <!-- Buttons -->
+              <div class="flex flex-col sm:flex-row gap-3">
+                <!-- Add to Cart -->
+                <button
+                  class="flex-1 bg-blue-600 text-white py-4 rounded-xl font-bold transition-all duration-300 ease-in-out hover:bg-blue-700 hover:shadow-lg hover:scale-[1.02] active:scale-95"
+                >
+                  Add to Cart
+                </button>
+
+                <!-- Buy Now -->
+                <button
+                  class="flex-1 border border-blue-600 text-blue-600 py-4 rounded-xl font-bold transition-all duration-300 ease-in-out hover:bg-blue-600 hover:text-white hover:shadow-lg hover:scale-[1.02] active:scale-95 dark:text-blue-400 dark:border-blue-400 dark:hover:bg-blue-600 dark:hover:text-white"
+                >
+                  Buy Now
+                </button>
+              </div>
+
+              <!-- Features -->
+              <div
+                class="flex flex-col sm:flex-row gap-4 text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300"
+              >
+                <!-- Free Shipping -->
+                <div class="flex items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M3 13h13l3 3v4a1 1 0 0 1-1 1h-1a2 2 0 1 1-4 0H9a2 2 0 1 1-4 0H4a1 1 0 0 1-1-1v-7z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M16 13V6a1 1 0 0 0-1-1H1"
+                    />
+                  </svg>
+                  <span>Free Shipping</span>
+                </div>
+
+                <!-- Returns -->
+                <div class="flex items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M3 10h3l2-2m0 0l2 2m-2-2v12"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M21 14h-3l-2 2m0 0l-2-2m2 2V4"
+                    />
+                  </svg>
+                  <span>30-Day Returns</span>
+                </div>
+
+                <!-- Warranty -->
+                <div class="flex items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M9 12l2 2 4-4"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                    />
+                  </svg>
+                  <span>2-Year Warranty</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Banner end -->
+
+    <!-- Key Features start -->
+    <section
+      class="bg-[#101116] dark:bg-[#0a0a0f] py-10 md:py-16 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-3">
+        <!-- Heading -->
+        <div class="flex items-center gap-4 mb-8 md:mb-10">
+          <div class="w-1 h-5 md:h-6 bg-blue-600 rounded-xl"></div>
+          <h2 class="font-bold text-xl md:text-2xl text-white">Key Features</h2>
+        </div>
+
+        <!-- Grid -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5"
+        >
+          <!-- Card 1 -->
+          <div
+            class="bg-[#16181f] dark:bg-[#1a1d28] border border-[#232634] dark:border-gray-700 rounded-2xl p-5 md:p-6 flex flex-col gap-4 transition-colors duration-300"
+          >
+            <div
+              class="w-10 h-10 rounded-lg bg-blue-600/20 flex items-center justify-center text-blue-500"
+            >
+              <!-- svg -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M4 14l10-10-2 6h7L9 22l2-6H4z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-base mb-1">
+                Active Noise Cancellation
+              </h3>
+              <p
+                class="text-sm text-[#a0a6b8] dark:text-gray-400 leading-relaxed transition-colors duration-300"
+              >
+                40dB industry-leading ANC. Silence the world around you.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="bg-[#16181f] dark:bg-[#1a1d28] border border-[#232634] dark:border-gray-700 rounded-2xl p-5 md:p-6 flex flex-col gap-4 transition-colors duration-300"
+          >
+            <div
+              class="w-10 h-10 rounded-lg bg-blue-600/20 flex items-center justify-center text-blue-500"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M11 7l-3 5h4l-3 5m5-11h2a2 2 0 012 2v8a2 2 0 01-2 2h-3"
+                />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-base mb-1">
+                40-Hour Battery Life
+              </h3>
+              <p
+                class="text-sm text-[#a0a6b8] dark:text-gray-400 leading-relaxed transition-colors duration-300"
+              >
+                Quick charge gives hours of playback in minutes.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="bg-[#16181f] dark:bg-[#1a1d28] border border-[#232634] dark:border-gray-700 rounded-2xl p-5 md:p-6 flex flex-col gap-4 transition-colors duration-300"
+          >
+            <div
+              class="w-10 h-10 rounded-lg bg-blue-600/20 flex items-center justify-center text-blue-500"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M7 7l10 10-5 5V2l5 5-10 10" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-base mb-1">Bluetooth 5.3</h3>
+              <p
+                class="text-sm text-[#a0a6b8] dark:text-gray-400 leading-relaxed transition-colors duration-300"
+              >
+                Connect two devices and switch seamlessly.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="bg-[#16181f] dark:bg-[#1a1d28] border border-[#232634] dark:border-gray-700 rounded-2xl p-5 md:p-6 flex flex-col gap-4 transition-colors duration-300"
+          >
+            <div
+              class="w-10 h-10 rounded-lg bg-blue-600/20 flex items-center justify-center text-blue-500"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="9" y="2" width="6" height="13" rx="3" />
+                <path d="M12 19v3m7-12v2a7 7 0 01-14 0v-2" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-base mb-1">
+                Crystal Clear Calls
+              </h3>
+              <p
+                class="text-sm text-[#a0a6b8] dark:text-gray-400 leading-relaxed transition-colors duration-300"
+              >
+                AI-powered noise rejection for clear voice calls.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Key Features end -->
+
+    <!-- Specifications start -->
+    <section
+      class="bg-white dark:bg-[#0f1116] py-10 md:py-16 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-3">
+        <!-- Heading -->
+        <div class="flex items-center gap-4 mb-8 md:mb-10">
+          <div class="w-1 h-5 md:h-6 bg-blue-600 rounded-xl"></div>
+          <h2
+            class="font-bold text-xl md:text-2xl text-gray-900 dark:text-white transition-colors duration-300"
+          >
+            Specifications
+          </h2>
+        </div>
+
+        <!-- Accordion -->
+        <div class="flex flex-col gap-3" id="specAccordion">
+          <!-- ITEM 1 (OPEN) -->
+          <div
+            class="border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden spec-item transition-colors duration-300"
+          >
+            <button
+              class="w-full flex justify-between items-center px-4 md:px-6 py-4 bg-gray-50 dark:bg-gray-800 spec-btn transition-colors duration-300"
+            >
+              <span
+                class="font-semibold text-gray-900 dark:text-white text-sm md:text-base transition-colors duration-300"
+              >
+                Audio Performance
+              </span>
+
+              <svg
+                class="w-5 h-5 text-gray-500 hover:text-blue-600 transition-all duration-300 rotate-180 spec-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  d="M18 15l-6-6-6 6"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+
+            <div
+              class="spec-content max-h-[500px] opacity-100 transition-all duration-300 overflow-hidden bg-white dark:bg-gray-900 px-4 md:px-6 py-4"
+            >
+              <div
+                class="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700 transition-colors duration-300"
+              >
+                <span
+                  class="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300"
+                  >Driver Size</span
+                >
+                <span
+                  class="text-sm font-medium dark:text-gray-300 transition-colors duration-300"
+                  >40mm Dynamic</span
+                >
+              </div>
+
+              <div
+                class="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700 transition-colors duration-300"
+              >
+                <span
+                  class="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300"
+                  >Frequency Response</span
+                >
+                <span
+                  class="text-sm font-medium dark:text-gray-300 transition-colors duration-300"
+                  >20Hz – 20kHz</span
+                >
+              </div>
+
+              <div
+                class="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700 transition-colors duration-300"
+              >
+                <span
+                  class="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300"
+                  >Impedance</span
+                >
+                <span
+                  class="text-sm font-medium dark:text-gray-300 transition-colors duration-300"
+                  >32 Ohm</span
+                >
+              </div>
+
+              <div class="flex justify-between py-2">
+                <span
+                  class="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300"
+                  >Sensitivity</span
+                >
+                <span
+                  class="text-sm font-medium dark:text-gray-300 transition-colors duration-300"
+                  >103 dB</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM 2 -->
+          <div
+            class="border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden spec-item transition-colors duration-300"
+          >
+            <button
+              class="w-full flex justify-between items-center px-4 md:px-6 py-4 bg-gray-50 dark:bg-gray-800 spec-btn transition-colors duration-300"
+            >
+              <span
+                class="font-semibold text-gray-900 dark:text-white text-sm md:text-base transition-colors duration-300"
+              >
+                Connectivity
+              </span>
+
+              <svg
+                class="w-5 h-5 text-gray-500 hover:text-blue-600 transition-all duration-300 rotate-180 spec-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  d="M18 15l-6-6-6 6"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+
+            <div
+              class="spec-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 bg-white dark:bg-gray-900 px-4 md:px-6 py-0"
+            >
+              <p
+                class="text-sm text-gray-500 dark:text-gray-400 py-4 transition-colors duration-300"
+              >
+                Bluetooth 5.3, dual device connection, low latency mode.
+              </p>
+            </div>
+          </div>
+
+          <!-- ITEM 3 -->
+          <div
+            class="border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden spec-item transition-colors duration-300"
+          >
+            <button
+              class="w-full flex justify-between items-center px-4 md:px-6 py-4 bg-gray-50 dark:bg-gray-800 spec-btn transition-colors duration-300"
+            >
+              <span
+                class="font-semibold text-gray-900 dark:text-white text-sm md:text-base transition-colors duration-300"
+              >
+                Battery & Charging
+              </span>
+
+              <svg
+                class="w-5 h-5 text-gray-500 hover:text-blue-600 transition-all duration-300 spec-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  d="M18 15l-6-6-6 6"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+
+            <div
+              class="spec-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 bg-white dark:bg-gray-900 px-4 md:px-6 py-0"
+            >
+              <p
+                class="text-sm text-gray-500 dark:text-gray-400 py-4 transition-colors duration-300"
+              >
+                40-hour battery life with fast charging support.
+              </p>
+            </div>
+          </div>
+
+          <!-- ITEM 4 -->
+          <div
+            class="border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden spec-item transition-colors duration-300"
+          >
+            <button
+              class="w-full flex justify-between items-center px-4 md:px-6 py-4 bg-gray-50 dark:bg-gray-800 spec-btn transition-colors duration-300"
+            >
+              <span
+                class="font-semibold text-gray-900 dark:text-white text-sm md:text-base transition-colors duration-300"
+              >
+                Physical
+              </span>
+
+              <svg
+                class="w-5 h-5 text-gray-500 hover:text-blue-600 transition-all duration-300 spec-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  d="M18 15l-6-6-6 6"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+
+            <div
+              class="spec-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 bg-white dark:bg-gray-900 px-4 md:px-6 py-0"
+            >
+              <p
+                class="text-sm text-gray-500 dark:text-gray-400 py-4 transition-colors duration-300"
+              >
+                Lightweight aluminum build with premium ear cushions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Specifications end -->
+
+    <!-- Why ENOVA Pro X1 start -->
+    <section
+      class="bg-[#101116] dark:bg-[#0a0a0f] py-12 md:py-16 lg:py-20 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-3">
+        <!-- Heading -->
+        <div class="flex items-center gap-4 mb-10">
+          <div class="w-1 h-5 md:h-6 bg-blue-600 rounded-xl"></div>
+          <h2 class="font-bold text-xl md:text-2xl text-white">
+            Why ENOVA Pro X1
+          </h2>
+        </div>
+
+        <!-- Content Wrapper -->
+        <div class="flex flex-col gap-14 md:gap-20">
+          <!-- BLOCK 1 -->
+          <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-20">
+            <!-- Image -->
+            <div class="w-full lg:w-1/2 rounded-2xl overflow-hidden">
+              <img
+                src="images/active-noice-cancelation.jpg"
+                class="w-full h-[260px] sm:h-[340px] md:h-[420px] lg:h-[440px] object-cover"
+                alt="Noise Cancellation"
+              />
+            </div>
+
+            <!-- Text -->
+            <div class="w-full lg:w-1/2 flex flex-col gap-4 md:gap-5">
+              <span
+                class="text-xs font-bold uppercase tracking-widest text-blue-500"
+              >
+                Active Noise Cancellation
+              </span>
+
+              <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-white">
+                Engineered for Silence
+              </h2>
+
+              <div class="w-12 h-0.5 bg-blue-600"></div>
+
+              <p
+                class="text-sm md:text-base text-[#a0a6b8] dark:text-gray-400 leading-relaxed transition-colors duration-300"
+              >
+                Our proprietary Adaptive ANC system reads your environment 1,000
+                times per second, continuously adjusting to provide the perfect
+                balance of immersion and awareness. Whether in a crowded airport
+                or an open office, the ENOVA Pro X1 creates your personal
+                sanctuary.
+              </p>
+
+              <a
+                href="#"
+                class="text-blue-500 font-semibold text-sm flex items-center gap-2"
+              >
+                Learn More →
+              </a>
+            </div>
+          </div>
+
+          <!-- BLOCK 2 (REVERSED ON DESKTOP ONLY) -->
+          <div
+            class="flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-20"
+          >
+            <!-- Image -->
+            <div class="w-full lg:w-1/2 rounded-2xl overflow-hidden">
+              <img
+                src="images/precision-tuned-acoustics.jpg"
+                class="w-full h-[260px] sm:h-[340px] md:h-[420px] lg:h-[440px] object-cover"
+                alt="Acoustics"
+              />
+            </div>
+
+            <!-- Text -->
+            <div class="w-full lg:w-1/2 flex flex-col gap-4 md:gap-5">
+              <span
+                class="text-xs font-bold uppercase tracking-widest text-blue-500"
+              >
+                Precision-Tuned Acoustics
+              </span>
+
+              <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-white">
+                Sound That Moves You
+              </h2>
+
+              <div class="w-12 h-0.5 bg-blue-600"></div>
+
+              <p
+                class="text-sm md:text-base text-[#a0a6b8] dark:text-gray-400 leading-relaxed transition-colors duration-300"
+              >
+                40mm dynamic drivers paired with a custom acoustic chamber
+                produce a soundstage so wide and transparent, you will discover
+                details in your music you never knew existed. Tuned by
+                world-class audio engineers with decades of Hi-Fi experience.
+              </p>
+
+              <a
+                href="#"
+                class="text-blue-500 font-semibold text-sm flex items-center gap-2"
+              >
+                Learn More →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Why ENOVA Pro X1 end -->
+
+    <!-- Customer Reviews start -->
+    <section
+      class="bg-[#f7f9fc] dark:bg-gray-900 py-12 md:py-16 border-t border-[#e6eaf2] dark:border-gray-800 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-3">
+        <!-- Heading -->
+        <div class="flex items-center gap-4 mb-10">
+          <div class="w-1 h-6 bg-[#2563eb] rounded-xl"></div>
+          <h2
+            class="font-bold text-2xl text-[#111827] dark:text-white transition-colors duration-300"
+          >
+            Customer Reviews
+          </h2>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-10 lg:gap-16">
+          <!-- LEFT SUMMARY -->
+          <div class="w-full lg:w-64 flex flex-col gap-6">
+            <!-- Rating Box -->
+            <div
+              class="flex flex-col items-center gap-2 py-8 bg-[#eef3ff] dark:bg-gray-800 rounded-2xl border border-[#e6eaf2] dark:border-gray-700 transition-colors duration-300"
+            >
+              <span
+                class="font-bold text-5xl text-[#111827] dark:text-white transition-colors duration-300"
+                >4.8</span
+              >
+
+              <div class="flex items-center gap-1 text-[#f5b301]">★★★★☆</div>
+
+              <span class="text-sm text-[#2563eb] font-medium">4.8</span>
+              <span
+                class="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300"
+                >(2,340 reviews)</span
+              >
+              <span
+                class="text-xs text-gray-400 dark:text-gray-500 transition-colors duration-300"
+                >out of 5</span
+              >
+            </div>
+
+            <!-- Rating Bars -->
+            <div class="flex flex-col gap-3">
+              <!-- 5 star -->
+              <div class="flex items-center gap-3">
+                <span
+                  class="text-xs w-4 text-right text-gray-500 dark:text-gray-400 transition-colors duration-300"
+                  >5</span
+                >
+
+                <!-- Stars -->
+                <div class="flex items-center gap-0.5 text-[#f5b301]">★</div>
+
+                <div
+                  class="flex-1 h-2 bg-[#e9eef7] dark:bg-gray-700 rounded-full overflow-hidden transition-colors duration-300"
+                >
+                  <div class="h-full bg-[#2563eb]" style="width: 72%"></div>
+                </div>
+                <span
+                  class="text-xs w-8 text-gray-500 dark:text-gray-400 transition-colors duration-300"
+                  >72%</span
+                >
+              </div>
+
+              <!-- 4 star -->
+              <div class="flex items-center gap-3">
+                <span
+                  class="text-xs w-4 text-right text-gray-500 dark:text-gray-400 transition-colors duration-300"
+                  >4</span
+                >
+
+                <div class="flex items-center gap-0.5 text-[#f5b301]">★</div>
+
+                <div
+                  class="flex-1 h-2 bg-[#e9eef7] dark:bg-gray-700 rounded-full overflow-hidden transition-colors duration-300"
+                >
+                  <div class="h-full bg-[#2563eb]" style="width: 18%"></div>
+                </div>
+                <span
+                  class="text-xs w-8 text-gray-500 dark:text-gray-400 transition-colors duration-300"
+                  >18%</span
+                >
+              </div>
+
+              <!-- 3 star -->
+              <div class="flex items-center gap-3">
+                <span
+                  class="text-xs w-4 text-right text-gray-500 dark:text-gray-400 transition-colors duration-300"
+                  >3</span
+                >
+
+                <div class="flex items-center gap-0.5 text-[#f5b301]">★</div>
+
+                <div
+                  class="flex-1 h-2 bg-[#e9eef7] dark:bg-gray-700 rounded-full overflow-hidden transition-colors duration-300"
+                >
+                  <div class="h-full bg-[#2563eb]" style="width: 6%"></div>
+                </div>
+                <span
+                  class="text-xs w-8 text-gray-500 dark:text-gray-400 transition-colors duration-300"
+                  >6%</span
+                >
+              </div>
+
+              <!-- 2 star -->
+              <div class="flex items-center gap-3">
+                <span
+                  class="text-xs w-4 text-right text-gray-500 dark:text-gray-400 transition-colors duration-300"
+                  >2</span
+                >
+
+                <div class="flex items-center gap-0.5 text-[#f5b301]">★</div>
+
+                <div
+                  class="flex-1 h-2 bg-[#e9eef7] dark:bg-gray-700 rounded-full overflow-hidden transition-colors duration-300"
+                >
+                  <div class="h-full bg-[#2563eb]" style="width: 2%"></div>
+                </div>
+                <span
+                  class="text-xs w-8 text-gray-500 dark:text-gray-400 transition-colors duration-300"
+                  >2%</span
+                >
+              </div>
+
+              <!-- 1 star -->
+              <div class="flex items-center gap-3">
+                <span
+                  class="text-xs w-4 text-right text-gray-500 dark:text-gray-400 transition-colors duration-300"
+                  >1</span
+                >
+
+                <div class="flex items-center gap-0.5 text-[#f5b301]">★</div>
+
+                <div
+                  class="flex-1 h-2 bg-[#e9eef7] dark:bg-gray-700 rounded-full overflow-hidden transition-colors duration-300"
+                >
+                  <div class="h-full bg-[#2563eb]" style="width: 2%"></div>
+                </div>
+                <span
+                  class="text-xs w-8 text-gray-500 dark:text-gray-400 transition-colors duration-300"
+                  >2%</span
+                >
+              </div>
+            </div>
+
+            <!-- Button -->
+            <button
+              class="w-full border border-[#2563eb] text-[#2563eb] dark:text-blue-400 dark:border-blue-400 py-3 rounded-xl text-sm font-bold hover:bg-[#2563eb] hover:text-white dark:hover:bg-blue-600 dark:hover:text-white transition"
+            >
+              Write a Review
+            </button>
+          </div>
+
+          <!-- RIGHT REVIEWS -->
+          <div
+            class="flex-1 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1 gap-5"
+          >
+            <!-- Card -->
+            <div
+              class="bg-[#f5f7ff] dark:bg-gray-800 border border-[#e6eaf2] dark:border-gray-700 rounded-2xl p-6 flex flex-col gap-3 transition-colors duration-300"
+            >
+              <div class="flex items-start justify-between">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="images/reviewer-1.jpg"
+                    class="w-10 h-10 rounded-xl"
+                  />
+                  <div>
+                    <p
+                      class="text-sm font-bold text-[#111827] dark:text-white transition-colors duration-300"
+                    >
+                      Sofia R.
+                    </p>
+                    <span
+                      class="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300"
+                      >Nov 12, 2026</span
+                    >
+                  </div>
+                </div>
+                <span class="text-[#f5b301] text-sm">★★★★★</span>
+              </div>
+
+              <p
+                class="font-bold text-sm text-[#111827] dark:text-white transition-colors duration-300"
+              >
+                Best headphones I have ever owned
+              </p>
+              <p
+                class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors duration-300"
+              >
+                The ANC is magical. I use these daily and cannot hear outside
+                noise.
+              </p>
+            </div>
+
+            <!-- Card -->
+            <div
+              class="bg-[#f5f7ff] dark:bg-gray-800 border border-[#e6eaf2] dark:border-gray-700 rounded-2xl p-6 flex flex-col gap-3 transition-colors duration-300"
+            >
+              <div class="flex items-start justify-between">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="images/reviewer-2.jpg"
+                    class="w-10 h-10 rounded-xl"
+                  />
+                  <div>
+                    <p
+                      class="text-sm font-bold text-[#111827] dark:text-white transition-colors duration-300"
+                    >
+                      Marcus T.
+                    </p>
+                    <span
+                      class="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300"
+                      >Oct 28, 2026</span
+                    >
+                  </div>
+                </div>
+                <span class="text-[#f5b301] text-sm">★★★★★</span>
+              </div>
+
+              <p
+                class="font-bold text-sm text-[#111827] dark:text-white transition-colors duration-300"
+              >
+                Finally, comfort meets performance
+              </p>
+              <p
+                class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors duration-300"
+              >
+                Beats Sony & Apple in comfort. Perfect for long sessions.
+              </p>
+            </div>
+
+            <!-- Card -->
+            <div
+              class="bg-[#f5f7ff] dark:bg-gray-800 border border-[#e6eaf2] dark:border-gray-700 rounded-2xl p-6 flex flex-col gap-3 transition-colors duration-300"
+            >
+              <div class="flex items-start justify-between">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="images/reviewer-3.jpg"
+                    class="w-10 h-10 rounded-xl"
+                  />
+                  <div>
+                    <p
+                      class="text-sm font-bold text-[#111827] dark:text-white transition-colors duration-300"
+                    >
+                      Yuki H.
+                    </p>
+                    <span
+                      class="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300"
+                      >Oct 15, 2026</span
+                    >
+                  </div>
+                </div>
+                <span class="text-[#f5b301] text-sm">★★★★☆</span>
+              </div>
+
+              <p
+                class="font-bold text-sm text-[#111827] dark:text-white transition-colors duration-300"
+              >
+                Great product, minor quirks
+              </p>
+              <p
+                class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed transition-colors duration-300"
+              >
+                Sound is phenomenal. App could be improved, but hardware is top
+                tier.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Customer Reviews end -->
+
+    <!-- You May Also Like start -->
+    <section
+      class="bg-white dark:bg-[#0f1116] border-t border-gray-200 dark:border-gray-800 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-10 md:py-14 lg:py-16 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto">
+        <!-- Heading -->
+        <div class="flex items-center gap-3 md:gap-4 mb-8 md:mb-10">
+          <div class="w-1 h-6 bg-[#2563eb] rounded-xl"></div>
+          <h2
+            class="font-headings font-bold text-xl md:text-2xl text-gray-900 dark:text-white transition-colors duration-300"
+          >
+            You May Also Like
+          </h2>
+        </div>
+
+        <!-- Products Grid -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
+        >
+          <!-- Card 1 -->
+          <a
+            href="#"
+            class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+          >
+            <div class="overflow-hidden h-[220px] sm:h-[240px]">
+              <img
+                src="images/ENOVA-Air-2.jpg"
+                alt="ENOVA Air 2"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+
+            <div class="p-5 flex flex-col gap-2">
+              <span
+                class="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300"
+              >
+                True Wireless Earbuds
+              </span>
+
+              <h3
+                class="font-headings font-bold text-base text-gray-900 dark:text-white transition-colors duration-300"
+              >
+                ENOVA Air 2
+              </h3>
+
+              <div class="flex items-center gap-1">
+                <span class="text-yellow-500">★★★★★</span>
+                <span
+                  class="text-xs text-gray-500 dark:text-gray-400 ml-1 transition-colors duration-300"
+                  >4.6</span
+                >
+              </div>
+
+              <div class="flex items-center gap-2">
+                <span
+                  class="font-bold text-base text-gray-900 dark:text-white transition-colors duration-300"
+                  >$199</span
+                >
+                <span
+                  class="text-sm text-gray-500 dark:text-gray-400 line-through transition-colors duration-300"
+                >
+                  $249
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Card 2 -->
+          <a
+            href="#"
+            class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+          >
+            <div class="overflow-hidden h-[220px] sm:h-[240px]">
+              <img
+                src="images/ENOVA-studio.jpg"
+                alt="ENOVA Studio"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+
+            <div class="p-5 flex flex-col gap-2">
+              <span
+                class="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300"
+              >
+                Studio Monitor Headphones
+              </span>
+
+              <h3
+                class="font-headings font-bold text-base text-gray-900 dark:text-white transition-colors duration-300"
+              >
+                ENOVA Studio
+              </h3>
+
+              <div class="flex items-center gap-1">
+                <span class="text-yellow-500">★★★★★</span>
+                <span
+                  class="text-xs text-gray-500 dark:text-gray-400 ml-1 transition-colors duration-300"
+                  >4.9</span
+                >
+              </div>
+
+              <div class="flex items-center gap-2">
+                <span
+                  class="font-bold text-base text-gray-900 dark:text-white transition-colors duration-300"
+                  >$279</span
+                >
+              </div>
+            </div>
+          </a>
+
+          <!-- Card 3 -->
+          <a
+            href="#"
+            class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+          >
+            <div class="overflow-hidden h-[220px] sm:h-[240px]">
+              <img
+                src="images/ENOVA-Sport-X.jpg"
+                alt="ENOVA Sport X"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+
+            <div class="p-5 flex flex-col gap-2">
+              <span
+                class="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300"
+              >
+                Workout Earphones
+              </span>
+
+              <h3
+                class="font-headings font-bold text-base text-gray-900 dark:text-white transition-colors duration-300"
+              >
+                ENOVA Sport X
+              </h3>
+
+              <div class="flex items-center gap-1">
+                <span class="text-yellow-500">★★★★★</span>
+                <span
+                  class="text-xs text-gray-500 dark:text-gray-400 ml-1 transition-colors duration-300"
+                  >4.5</span
+                >
+              </div>
+
+              <div class="flex items-center gap-2">
+                <span
+                  class="font-bold text-base text-gray-900 dark:text-white transition-colors duration-300"
+                  >$129</span
+                >
+                <span
+                  class="text-sm text-gray-500 dark:text-gray-400 line-through transition-colors duration-300"
+                >
+                  $159
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Card 4 -->
+          <a
+            href="#"
+            class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+          >
+            <div class="overflow-hidden h-[220px] sm:h-[240px]">
+              <img
+                src="images/ENOVA-Beam.jpg"
+                alt="ENOVA Beam"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+
+            <div class="p-5 flex flex-col gap-2">
+              <span
+                class="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300"
+              >
+                Soundbar Speaker
+              </span>
+
+              <h3
+                class="font-headings font-bold text-base text-gray-900 dark:text-white transition-colors duration-300"
+              >
+                ENOVA Beam
+              </h3>
+
+              <div class="flex items-center gap-1">
+                <span class="text-yellow-500">★★★★★</span>
+                <span
+                  class="text-xs text-gray-500 dark:text-gray-400 ml-1 transition-colors duration-300"
+                  >4.7</span
+                >
+              </div>
+
+              <div class="flex items-center gap-2">
+                <span
+                  class="font-bold text-base text-gray-900 dark:text-white transition-colors duration-300"
+                  >$449</span
+                >
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- You May Also Like end -->
+
+    <!-- FAQ Start -->
+    <section
+      class="bg-white dark:bg-[#0f1116] py-16 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-10">
+          <h2
+            class="font-bold text-2xl text-gray-900 dark:text-white transition-colors duration-300"
+          >
+            Frequently Asked Questions
+          </h2>
+        </div>
+
+        <div class="max-w-3xl mx-auto flex flex-col gap-3" id="faq">
+          <!-- ITEM 1 (OPEN DEFAULT) -->
+          <div
+            class="border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden faq-item transition-colors duration-300"
+          >
+            <button
+              class="w-full flex justify-between items-center px-5 py-4 bg-[#f7f8fc] dark:bg-gray-800 faq-question transition-colors duration-300"
+            >
+              <span
+                class="text-gray-900 dark:text-white font-medium text-left transition-colors duration-300"
+              >
+                Does the ENOVA Pro X1 support multipoint Bluetooth?
+              </span>
+              <span class="text-blue-600 text-xl icon">−</span>
+            </button>
+
+            <div
+              class="faq-answer max-h-[200px] opacity-100 transition-all duration-300 ease-in-out overflow-hidden px-5 py-4 bg-white dark:bg-gray-900"
+            >
+              <p
+                class="text-sm text-[#8891a9] dark:text-gray-400 leading-relaxed transition-colors duration-300"
+              >
+                Yes. The Pro X1 supports simultaneous connection to two devices
+                via Bluetooth 5.3, allowing seamless switching between devices.
+              </p>
+            </div>
+          </div>
+
+          <!-- ITEM 2 -->
+          <div
+            class="border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden faq-item transition-colors duration-300"
+          >
+            <button
+              class="w-full flex justify-between items-center px-5 py-4 bg-[#f7f8fc] dark:bg-gray-800 faq-question transition-colors duration-300"
+            >
+              <span
+                class="text-gray-700 dark:text-gray-300 font-medium text-left transition-colors duration-300"
+              >
+                Can I use the headphones wired when the battery dies?
+              </span>
+              <span class="text-blue-600 text-xl icon">+</span>
+            </button>
+
+            <div
+              class="faq-answer max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-in-out px-5 py-0 bg-white dark:bg-gray-900"
+            >
+              <p
+                class="text-sm text-[#8891a9] dark:text-gray-400 leading-relaxed transition-colors duration-300"
+              >
+                Yes, you can use the headphones in wired mode even when the
+                battery is empty.
+              </p>
+            </div>
+          </div>
+
+          <!-- ITEM 3 -->
+          <div
+            class="border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden faq-item transition-colors duration-300"
+          >
+            <button
+              class="w-full flex justify-between items-center px-5 py-4 bg-[#f7f8fc] dark:bg-gray-800 faq-question transition-colors duration-300"
+            >
+              <span
+                class="text-gray-700 dark:text-gray-300 font-medium text-left transition-colors duration-300"
+              >
+                Are the ear pads replaceable?
+              </span>
+              <span class="text-blue-600 text-xl icon">+</span>
+            </button>
+
+            <div
+              class="faq-answer max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-in-out px-5 py-0 bg-white dark:bg-gray-900"
+            >
+              <p
+                class="text-sm text-[#8891a9] dark:text-gray-400 leading-relaxed transition-colors duration-300"
+              >
+                Yes, the ear pads are designed to be replaceable for long-term
+                comfort and maintenance.
+              </p>
+            </div>
+          </div>
+
+          <!-- ITEM 4 -->
+          <div
+            class="border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden faq-item transition-colors duration-300"
+          >
+            <button
+              class="w-full flex justify-between items-center px-5 py-4 bg-[#f7f8fc] dark:bg-gray-800 faq-question transition-colors duration-300"
+            >
+              <span
+                class="text-gray-700 dark:text-gray-300 font-medium text-left transition-colors duration-300"
+              >
+                Is the ENOVA Pro X1 compatible with Hi-Res Audio?
+              </span>
+              <span class="text-blue-600 text-xl icon">+</span>
+            </button>
+
+            <div
+              class="faq-answer max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-in-out px-5 py-0 bg-white dark:bg-gray-900"
+            >
+              <p
+                class="text-sm text-[#8891a9] dark:text-gray-400 leading-relaxed transition-colors duration-300"
+              >
+                Yes, it supports Hi-Res Audio certification for high-quality
+                sound output.
+              </p>
+            </div>
+          </div>
+
+          <!-- ITEM 5 -->
+          <div
+            class="border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden faq-item transition-colors duration-300"
+          >
+            <button
+              class="w-full flex justify-between items-center px-5 py-4 bg-[#f7f8fc] dark:bg-gray-800 faq-question transition-colors duration-300"
+            >
+              <span
+                class="text-gray-700 dark:text-gray-300 font-medium text-left transition-colors duration-300"
+              >
+                What is the warranty period?
+              </span>
+              <span class="text-blue-600 text-xl icon">+</span>
+            </button>
+
+            <div
+              class="faq-answer max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-in-out px-5 py-0 bg-white dark:bg-gray-900"
+            >
+              <p
+                class="text-sm text-[#8891a9] dark:text-gray-400 leading-relaxed transition-colors duration-300"
+              >
+                The product comes with a 1-year manufacturer warranty.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- FAQ end -->
+
+    <section
+      class="bg-[#101116] dark:bg-[#0a0a0f] py-12 md:py-16 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-3">
+        <div
+          class="rounded-3xl overflow-hidden border border-gray-700 dark:border-gray-600 px-6 py-8 md:px-10 md:py-12 lg:px-20 lg:py-16 flex flex-col lg:flex-row items-center lg:items-center justify-between gap-8 lg:gap-16 transition-colors duration-300"
+          style="
+            background: linear-gradient(
+              135deg,
+              #1a2540 0%,
+              #0f1117 60%,
+              #1a2540 100%
+            );
+          "
+        >
+          <!-- Content -->
+          <div class="flex-1 text-center lg:text-left">
+            <span
+              class="text-xs font-bold uppercase tracking-widest text-blue-600 block mb-3"
+            >
+              Join the ENOVA Community
+            </span>
+
+            <h2
+              class="font-bold text-2xl md:text-3xl lg:text-4xl text-white leading-tight mb-4"
+            >
+              Get Early Access &amp; Exclusive Deals
+            </h2>
+
+            <p
+              class="text-sm md:text-base text-[#565c71] dark:text-gray-400 max-w-md mx-auto lg:mx-0 transition-colors duration-300"
+            >
+              Be the first to hear about new products, limited editions, and
+              members-only discounts. No spam — ever.
+            </p>
+          </div>
+
+          <!-- Form -->
+          <div class="flex-1 w-full max-w-xl">
+            <div class="flex flex-col sm:flex-row gap-3">
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                class="w-full flex-1 border border-gray-700 dark:border-gray-600 rounded-full px-5 py-4 bg-[#101116] dark:bg-gray-900 text-white placeholder:text-[#565c71] dark:placeholder:text-gray-500 text-sm outline-none focus:border-blue-600 transition-colors duration-300"
+              />
+
+              <button
+                type="submit"
+                class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-bold text-sm whitespace-nowrap transition-colors duration-300"
+              >
+                Subscribe
+              </button>
+            </div>
+
+            <p
+              class="text-xs text-[#565c71] dark:text-gray-500 mt-3 text-center sm:text-left transition-colors duration-300"
+            >
+              By subscribing you agree to our Privacy Policy. Unsubscribe
+              anytime.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Start -->
+    <footer
+      class="bg-[#101116] dark:bg-black border-t border-gray-700 dark:border-gray-800 pt-12 md:pt-16 pb-8 transition-colors duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4">
+        <!-- TOP SECTION -->
+        <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 mb-12 md:mb-16">
+          <!-- BRAND -->
+          <div class="w-full lg:w-64">
+            <h2
+              class="text-xl font-bold tracking-widest uppercase text-white mb-3"
+            >
+              ENOVA
+            </h2>
+
+            <p
+              class="text-sm text-[#565c71] dark:text-gray-400 leading-relaxed mb-6 transition-colors duration-300"
+            >
+              Premium audio, engineered for those who demand more from their
+              sound.
+            </p>
+
+            <!-- SOCIAL -->
+            <div
+              class="flex flex-wrap items-center gap-4 text-[#565c71] dark:text-gray-400 transition-colors duration-300"
+            >
+              <!-- Twitter -->
+              <a
+                href="#"
+                class="hover:text-white dark:hover:text-gray-200 transition-all duration-300 ease-in-out"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6c2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4c-.9-4.2 4-6.6 7-3.8c1.1 0 3-1.2 3-1.2"
+                  />
+                </svg>
+              </a>
+
+              <!-- Instagram -->
+              <a
+                href="#"
+                class="hover:text-white dark:hover:text-gray-200 transition-all duration-300 ease-in-out"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle
+                    cx="17.5"
+                    cy="6.5"
+                    r="1"
+                    fill="currentColor"
+                    stroke="none"
+                  />
+                </svg>
+              </a>
+
+              <!-- YouTube -->
+              <a
+                href="#"
+                class="hover:text-white dark:hover:text-gray-200 transition-all duration-300 ease-in-out"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M2.5 17a24.1 24.1 0 0 1 0-10a2 2 0 0 1 1.4-1.4a49.6 49.6 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.1 24.1 0 0 1 0 10a2 2 0 0 1-1.4 1.4a49.6 49.6 0 0 1-16.2 0A2 2 0 0 1 2.5 17"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m10 15 5-3-5-3z"
+                  />
+                </svg>
+              </a>
+
+              <!-- LinkedIn -->
+              <a
+                href="#"
+                class="hover:text-white dark:hover:text-gray-200 transition-all duration-300 ease-in-out"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2a2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6M2 9h4v12H2z"
+                  />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- LINKS GRID -->
+          <div
+            class="flex-1 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8"
+          >
+            <div>
+              <h3
+                class="text-xs font-bold uppercase tracking-widest text-white mb-4"
+              >
+                Products
+              </h3>
+              <div class="flex flex-col gap-2.5">
+                <a
+                  href="#"
+                  class="text-[#565c71] dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-all duration-300 ease-in-out"
+                >
+                  Headphones
+                </a>
+                <a
+                  href="#"
+                  class="text-[#565c71] dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-all duration-300 ease-in-out"
+                >
+                  Earbuds
+                </a>
+                <a
+                  href="#"
+                  class="text-[#565c71] dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-all duration-300 ease-in-out"
+                >
+                  Speakers
+                </a>
+                <a
+                  href="#"
+                  class="text-[#565c71] dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-all duration-300 ease-in-out"
+                >
+                  Accessories
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <h3
+                class="text-xs font-bold uppercase tracking-widest text-white mb-4"
+              >
+                Company
+              </h3>
+              <div class="flex flex-col gap-2.5">
+                <a
+                  href="#"
+                  class="text-[#565c71] dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-all duration-300 ease-in-out"
+                >
+                  About Us
+                </a>
+                <a
+                  href="#"
+                  class="text-[#565c71] dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-all duration-300 ease-in-out"
+                >
+                  Careers
+                </a>
+                <a
+                  href="#"
+                  class="text-[#565c71] dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-all duration-300 ease-in-out"
+                >
+                  Press
+                </a>
+                <a
+                  href="#"
+                  class="text-[#565c71] dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-all duration-300 ease-in-out"
+                >
+                  Investors
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <h3
+                class="text-xs font-bold uppercase tracking-widest text-white mb-4"
+              >
+                Support
+              </h3>
+              <div class="flex flex-col gap-2.5">
+                <a
+                  href="#"
+                  class="text-[#565c71] dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-all duration-300 ease-in-out"
+                >
+                  Help Center
+                </a>
+                <a
+                  href="#"
+                  class="text-[#565c71] dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-all duration-300 ease-in-out"
+                >
+                  Warranty
+                </a>
+                <a
+                  href="#"
+                  class="text-[#565c71] dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-all duration-300 ease-in-out"
+                >
+                  Returns
+                </a>
+                <a
+                  href="#"
+                  class="text-[#565c71] dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-all duration-300 ease-in-out"
+                >
+                  Contact
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <h3
+                class="text-xs font-bold uppercase tracking-widest text-white mb-4"
+              >
+                Legal
+              </h3>
+              <div class="flex flex-col gap-2.5">
+                <a
+                  href="#"
+                  class="text-[#565c71] dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-all duration-300 ease-in-out"
+                >
+                  Privacy
+                </a>
+                <a
+                  href="#"
+                  class="text-[#565c71] dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-all duration-300 ease-in-out"
+                >
+                  Terms
+                </a>
+                <a
+                  href="#"
+                  class="text-[#565c71] dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-all duration-300 ease-in-out"
+                >
+                  Cookies
+                </a>
+                <a
+                  href="#"
+                  class="text-[#565c71] dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-all duration-300 ease-in-out"
+                >
+                  Accessibility
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOTTOM -->
+        <div
+          class="border-t border-gray-700 dark:border-gray-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 transition-colors duration-300"
+        >
+          <p
+            class="text-xs text-[#565c71] dark:text-gray-400 text-center md:text-left transition-colors duration-300"
+          >
+            © <span id="current-year"></span> ENOVA Audio Inc. All rights
+            reserved.
+          </p>
+
+          <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+            <a
+              href="#"
+              class="text-xs text-[#565c71] dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-all duration-300 ease-in-out"
+            >
+              Privacy
+            </a>
+            <a
+              href="#"
+              class="text-xs text-[#565c71] dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-all duration-300 ease-in-out"
+            >
+              Terms
+            </a>
+            <a
+              href="#"
+              class="text-xs text-[#565c71] dark:text-gray-400 hover:text-white dark:hover:text-gray-200 transition-all duration-300 ease-in-out"
+            >
+              Cookies
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- Scripts -->
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+
+    <script>
+      // Initialize theme on page load
+      const html = document.documentElement;
+
+      // Load saved theme preference
+      if (localStorage.getItem("theme") === "dark") {
+        html.classList.add("dark");
+      } else if (!localStorage.getItem("theme")) {
+        // Check system preference if no saved preference
+        if (
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+          html.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+        }
+      }
+
+      // Toggle theme function
+      function toggleTheme() {
+        console.log("Toggle theme clicked");
+        html.classList.toggle("dark");
+
+        if (html.classList.contains("dark")) {
+          localStorage.setItem("theme", "dark");
+          console.log("Dark mode enabled");
+        } else {
+          localStorage.setItem("theme", "light");
+          console.log("Light mode enabled");
+        }
+      }
+    </script>
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("mobileNav");
+        const menuIcon = document.getElementById("menuIcon");
+        const closeIcon = document.getElementById("closeIcon");
+
+        const isOpen = menu.classList.contains("max-h-[300px]");
+
+        if (isOpen) {
+          menu.classList.remove("max-h-[300px]");
+          menu.classList.add("max-h-0");
+
+          menuIcon.classList.remove("hidden");
+          closeIcon.classList.add("hidden");
+        } else {
+          menu.classList.remove("max-h-0");
+          menu.classList.add("max-h-[300px]");
+
+          menuIcon.classList.add("hidden");
+          closeIcon.classList.remove("hidden");
+        }
+      }
+    </script>
+
+    <script>
+      function changeImage(element) {
+        const mainImage = document.getElementById("mainImage");
+
+        // Update main image
+        mainImage.src = element.src;
+
+        // Remove active border from all thumbnails
+        document.querySelectorAll(".thumbnail").forEach((img) => {
+          img.classList.remove("border-2", "border-blue-600");
+          img.classList.add("border", "border-gray-300");
+        });
+
+        // Add active border to clicked thumbnail
+        element.classList.remove("border", "border-gray-300");
+        element.classList.add("border-2", "border-blue-600");
+      }
+    </script>
+
+    <script>
+      let qty = 1;
+
+      function changeQty(value) {
+        qty = qty + value;
+
+        if (qty < 1) qty = 1;
+
+        document.getElementById("qtyValue").innerText = qty;
+      }
+    </script>
+
+    <!-- Smooth FAQ Script -->
+    <script>
+      const faqItems = document.querySelectorAll(".faq-item");
+
+      faqItems.forEach((item) => {
+        const button = item.querySelector(".faq-question");
+        const answer = item.querySelector(".faq-answer");
+        const icon = item.querySelector(".icon");
+
+        button.addEventListener("click", () => {
+          const isOpen = answer.classList.contains("max-h-[200px]");
+
+          // close all
+          faqItems.forEach((i) => {
+            const a = i.querySelector(".faq-answer");
+            const ic = i.querySelector(".icon");
+
+            a.classList.remove("max-h-[200px]", "opacity-100", "py-4");
+            a.classList.add("max-h-0", "opacity-0", "py-0");
+
+            ic.textContent = "+";
+          });
+
+          // open current
+          if (!isOpen) {
+            answer.classList.remove("max-h-0", "opacity-0", "py-0");
+            answer.classList.add("max-h-[200px]", "opacity-100", "py-4");
+            icon.textContent = "−";
+          }
+        });
+      });
+    </script>
+
+    <script>
+      const specItems = document.querySelectorAll(".spec-item");
+
+      specItems.forEach((item) => {
+        const btn = item.querySelector(".spec-btn");
+        const content = item.querySelector(".spec-content");
+        const icon = item.querySelector(".spec-icon");
+
+        btn.addEventListener("click", () => {
+          const isOpen = content.classList.contains("max-h-[500px]");
+
+          // close all
+          specItems.forEach((i) => {
+            const c = i.querySelector(".spec-content");
+            const ic = i.querySelector(".spec-icon");
+
+            c.classList.remove("max-h-[500px]", "opacity-100", "py-4");
+            c.classList.add("max-h-0", "opacity-0", "py-0");
+
+            ic.classList.remove("rotate-180");
+          });
+
+          // open current
+          if (!isOpen) {
+            content.classList.remove("max-h-0", "opacity-0", "py-0");
+            content.classList.add("max-h-[500px]", "opacity-100", "py-4");
+
+            icon.classList.add("rotate-180");
+          }
+        });
+      });
+    </script>
+
+    <script>
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
+</html>
